@@ -11,4 +11,4 @@ def rain_mainloop(ADC:PCF8591, ADC_addr=0):
         #     else:
         #         print("Not rain")
         #     rain_status = rain_tmp 
-        time.sleep(0.2)  
+        time.sleep(1)  

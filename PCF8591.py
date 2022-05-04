@@ -9,7 +9,7 @@
 # 在这个程序中，我们使用电位计进行模拟输入和控制一个模拟电压
 # 的LED灯，你可以导入这个程序到另一个程序中使用：
 # import PCF8591 as ADC
-# ADC.Setup(Address)  # 通过 sudo i2cdetect -y -1 可以获取到IIC的地址
+# ADC.Setup(Address)  # 通过 sudo i2cdetect -y 1 可以获取到IIC的地址
 # ADC.read(channal)	# 通道选择范围为0-3
 # ADC.write(Value)	# 值的范围为：0-255
 #####################################################
