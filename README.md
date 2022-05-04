@@ -1,8 +1,8 @@
-# Ras-Rain_Detector
+# Ras-Rain-Detector
 
 USTB Raspberry Development homework
 
-##  接线
+##  端口规范
 
 ### PCM8591
 
@@ -44,3 +44,14 @@ USTB Raspberry Development homework
 
 > 代码参考 https://github.com/adafruit/Adafruit_Python_DHT/blob/master/examples/AdafruitDHT.py
 
+### 模拟温度传感模块
+
+`thermistor.py`
+
+封装函数`thm_loop`连续读取当前温度
+
+### 雨滴传感模块
+
+`rain.py`
+
+封装函数`rain_mainloop`持续读取当前是否下雨
