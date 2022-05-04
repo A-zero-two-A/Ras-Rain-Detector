@@ -26,6 +26,10 @@ makerobo_B = 13 (27)
 
 makerobo_TouchPin = 16 (36)
 
+#### ADHT
+
+GPIO23(B16)
+
 ## 设计
 
 ### 触摸开关模块
