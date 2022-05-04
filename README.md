@@ -12,15 +12,21 @@ USTB Raspberry Development homework
 
 `A2`温度
 
+### 树莓派
+
+#### LED
+
+#### 触摸
+
 ## 设计
 
-#### 触摸开关模块
+### 触摸开关模块
 
 `touch.py`
 
 封装函数`is_touch`, 检测到触摸返回`True`, 否则返回`False`
 
-#### LED模块
+### LED模块
 
 `LED.py`
 
