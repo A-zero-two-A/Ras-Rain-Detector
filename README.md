@@ -1,5 +1,7 @@
 # Ras-Rain-Detector
 
+[![wakatime](https://wakatime.com/badge/user/b2ca97db-bce2-4b9b-8588-23c0de16890a/project/4abdce95-6975-4e73-ac71-6ba798d263ca.svg)](https://wakatime.com/badge/user/b2ca97db-bce2-4b9b-8588-23c0de16890a/project/4abdce95-6975-4e73-ac71-6ba798d263ca)
+
 USTB Raspberry Development homework
 
 ##  端口规范
