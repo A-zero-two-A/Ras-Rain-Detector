@@ -5,10 +5,8 @@ import RPi.GPIO as GPIO
 PCF_addr = '8x40'
 
 def init():
-    adc = ADC()
-    return adc
+    ADC.setup(PCF_addr)
 
 if __name__ == '__main__':
-    adc = init()
-    adc.setup(PCF_addr)
-    rain.rain_mainloop(adc, PCF_addr)
+    init()
+    rain.rain_mainloop(PCF_addr)

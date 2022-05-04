@@ -1,6 +1,6 @@
 import time
-
-def rain_mainloop(ADC:PCF8591, ADC_addr=0):
+import PCF8591 as ADC
+def rain_mainloop(ADC_addr=0):
     rain_status = 1
     while True:
         print (ADC.read(ADC_addr))
