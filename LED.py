@@ -11,7 +11,8 @@ Bpin = 13
 cur_color = 0
 gh = GPIO.HIGH
 gl = GPIO.LOW
-
+GPIO.setmode (GPIO.BOARD) #采用实际的物理管脚给GPIO口
+GPIO.setwarnings(False) #去除GPIO口警告
 GPIO.setup(11,GPIO.OUT)
 GPIO.setup(12,GPIO.OUT)
 GPIO.setup(13,GPIO.OUT)
@@ -21,8 +22,7 @@ GPIO.setup(13,GPIO.OUT)
 # global pins
 # global p_R, p_G, p_B
 # pins ={'pin_R': Rpin, 'pin_G': Gpin, 'pin_B': Bpin}
-GPIO.setmode (GPIO.BOARD) #采用实际的物理管脚给GPIO口
-GPIO.setwarnings(False) #去除GPIO口警告
+
 # for i in pins:
 #     GPIO.setup(pins[i],GPIO.OUT) #设置Pin模式为输出模式
 #     GPIO.output(pins[i], GPIO.LOW) #设置Pin管脚为低电平(0V)关闭LED
