@@ -24,7 +24,7 @@ makerobo_B = 13 (27)
 
 #### 触摸
 
-makerobo_TouchPin = 11 (17)
+makerobo_TouchPin = 16 (36)
 
 ## 设计
 
