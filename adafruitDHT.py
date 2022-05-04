@@ -1,3 +1,6 @@
+"""
+Adafruit Mod
+"""
 import sys
 
 import Adafruit_DHT
