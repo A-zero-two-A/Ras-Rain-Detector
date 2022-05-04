@@ -1,7 +1,7 @@
-from ast import If
 import RPi.GPIO as GPIO
+import time
 
-makerobo_TouchPin = 11   # 触摸传感器管脚PIN
+makerobo_TouchPin = 16   # 触摸传感器管脚PIN
 
 makerobo_tmp = 0    #是否有触摸判断 
 
@@ -12,7 +12,7 @@ def makerobo_setup():
 	GPIO.setup(makerobo_TouchPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)    # 设置makerobo_TouchPin管脚为输入模式，上拉至高电平(3.3V)
 
 # 打印函数，显示出是否有触摸
-def is_touch(x):
+def is_touch(x=GPIO.input(makerobo_TouchPin)):
 	global makerobo_tmp
 	if x != makerobo_tmp:
 		if x == 1:
@@ -20,3 +20,12 @@ def is_touch(x):
 		if x == 0:
 			return False
 		makerobo_tmp = x
+  
+if __name__ == '__main__':
+    while True:
+        cur = is_touch()
+        if cur:
+            print('1')
+        else:
+            print('0')
+        time.sleep(1)
