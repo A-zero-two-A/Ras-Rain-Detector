@@ -1,14 +1,12 @@
 import RPi.GPIO as GPIO
 import time
 
-from touch import makerobo_setup
-
 # colors = [0xFF0000, 0x00FF00, 0x0000FF, 0xFFFF00, 0xFF00FF, 0x00FFFF]
 colors = [0xFF0000, 0x00FF00]
 Rpin = 11
 Gpin = 12
 Bpin = 13
-cur_color = 0
+
 gh = GPIO.HIGH
 gl = GPIO.LOW
 GPIO.setmode (GPIO.BOARD) #采用实际的物理管脚给GPIO口
@@ -62,7 +60,7 @@ def makerobo_set_Color(col): #例如：co1 = 0x112233
     pass
 
 #循环函数
-def change_LED():
+def change_LED(cur_color):
     # while True:
     #     for col in colors:
     #         makerobo_set_Color(col) #设置颜色
@@ -71,7 +69,7 @@ def change_LED():
         GPIO.output(Gpin,gl)
         GPIO.output(Rpin,gh)
     else:
-        GPIO.output(Gpin,gl)
+        GPIO.output(Rpin,gl)
         GPIO.output(Gpin,gh)
 
 #资源释放     
@@ -83,7 +81,9 @@ def clear_LED():
     GPIO.cleanup() #释放资源
 
 if __name__ == '__main__':
+    cur_color = 0
+    change_LED(0)
     time.sleep(2)
-    change_LED()
+    change_LED(1)
     time.sleep(2)
     clear_LED()
