@@ -12,24 +12,28 @@ cur_color = 0
 gh = GPIO.HIGH
 gl = GPIO.LOW
 
+GPIO.setup(11,GPIO.OUT)
+GPIO.setup(12,GPIO.OUT)
+GPIO.setup(13,GPIO.OUT)
+
 #初始化程序
 # def makerobo_setup(Rpin=11 Gpin=12, Bpin=13):
-global pins
-global p_R, p_G, p_B
-pins ={'pin_R': Rpin, 'pin_G': Gpin, 'pin_B': Bpin}
+# global pins
+# global p_R, p_G, p_B
+# pins ={'pin_R': Rpin, 'pin_G': Gpin, 'pin_B': Bpin}
 GPIO.setmode (GPIO.BOARD) #采用实际的物理管脚给GPIO口
 GPIO.setwarnings(False) #去除GPIO口警告
-for i in pins:
-    GPIO.setup(pins[i],GPIO.OUT) #设置Pin模式为输出模式
-    GPIO.output(pins[i], GPIO.LOW) #设置Pin管脚为低电平(0V)关闭LED
-#由于RGB三色模块每一个LED达到一定的亮度，需要的电流值是不一样，所以设置的频率有区别
-P_R = GPIO.PWM(pins['pin_R'], 2000) #设置频率为2KHz
-p_G = GPIO.PWM(pins['oin G'], 1999)
-P_B = GPIO.PWM(pins['pin_B'], 5000)
-#初始化占空比为0(led关闭)
-p_R.start(0)
-p_G.start(0)
-p_B.start(0)
+# for i in pins:
+#     GPIO.setup(pins[i],GPIO.OUT) #设置Pin模式为输出模式
+#     GPIO.output(pins[i], GPIO.LOW) #设置Pin管脚为低电平(0V)关闭LED
+# #由于RGB三色模块每一个LED达到一定的亮度，需要的电流值是不一样，所以设置的频率有区别
+# P_R = GPIO.PWM(pins['pin_R'], 2000) #设置频率为2KHz
+# p_G = GPIO.PWM(pins['pin G'], 1999)
+# P_B = GPIO.PWM(pins['pin_B'], 5000)
+# #初始化占空比为0(led关闭)
+# p_R.start(0)
+# p_G.start(0)
+# p_B.start(0)
 
 #按比例缩放函数
 def makerobo_pwm_map(x, in_min, in_max, out_min, out_max):
