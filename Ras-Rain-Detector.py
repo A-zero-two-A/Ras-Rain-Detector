@@ -35,11 +35,11 @@ class RainDet(object):
         
     def change_led(self):
         LED.change_LED(self.cur_led_color)
-        if self.cur_led_color == 0:
+        if self.cur_led_color == 0 and self.warn:
             self.cur_led_color = 1
-        else:
+        elif self.cur_led_color == 1 and not self.warn:
             self.cur_led_color = 0
-        
+    
     def warn_judge(self):
         if self.is_rain and self.win_closed != True:
             self.warn = True
