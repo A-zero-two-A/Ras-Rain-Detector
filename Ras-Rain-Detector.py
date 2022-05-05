@@ -25,6 +25,7 @@ class RainDet(object):
         self.win_closed = False
         self.warn = False
         self.cur_led_color = 1
+        self.touch_num = 0
         up.init(self.up_callback)
         
     def init(self):
@@ -64,8 +65,8 @@ class RainDet(object):
             self.warn_judge()
             if self.warn:
                 self.send_warn()
-            # if touch.is_touch(GPIO.input(36)):
-            #     self.show()
+            if touch.is_touch(GPIO.input(36)):
+                self.show()
             self.debug()
             time.sleep(1)
 
@@ -86,14 +87,18 @@ class RainDet(object):
         print('Temp: '+str(self.tmp)+'C')
         print('Raining: '+str(self.is_rain))
         print('Window: ', end='')
-        print(self.cur_led_color)
-        print(self.warn)
-        print(ADC.read(0))
-        print(ADC.read(1))
         if self.win_closed:
             print('Closed')
         else:
             print('Opened')
+        print(self.cur_led_color)
+        print(self.warn)
+        print(ADC.read(0))
+        print(ADC.read(1))
+        if touch.is_touch(GPIO.input(36)):
+            self.touch_num += 1
+        print("touch", end=str(self.touch_num))
+        
     
     def release(self):
         GPIO.cleanup()
