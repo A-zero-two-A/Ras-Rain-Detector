@@ -20,4 +20,5 @@ if __name__ == '__main__':
     # thermistor.thm_loop(ADC_addr['thm'])
     # aDHT.DHT_mainloop()
     # ada.dht_mainloop()
+    up.init()
     up.loop()

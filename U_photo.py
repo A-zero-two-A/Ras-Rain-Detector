@@ -36,6 +36,7 @@ def destroy():
 # 程序入口
 if __name__ == '__main__':
     try:
+        init()
         loop()
     except KeyboardInterrupt:
         destroy()
