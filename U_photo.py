@@ -7,7 +7,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False) 
 
 GPIO.setup(U_photo_PIPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.add_event_detect(U_photo_PIPin, GPIO.BOTH, callback=U_photo_detect, bouncetime=200)
+
 
 
 # 打印函数，显示出是否有黑色物体挡住
@@ -30,8 +30,9 @@ def destroy():
 
 # 程序入口
 if __name__ == '__main__':
-	try:
-		loop()
-	except KeyboardInterrupt:
-		destroy()
-
+    
+    try:
+        GPIO.add_event_detect(U_photo_PIPin, GPIO.BOTH, callback=U_photo_detect, bouncetime=200)
+        loop()
+    except KeyboardInterrupt:
+        destroy()
