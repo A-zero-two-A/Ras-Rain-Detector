@@ -88,6 +88,8 @@ class RainDet(object):
         print('Window: ', end='')
         print(self.cur_led_color)
         print(self.warn)
+        print(ADC.read(0))
+        print(ADC.read(1))
         if self.win_closed:
             print('Closed')
         else:
