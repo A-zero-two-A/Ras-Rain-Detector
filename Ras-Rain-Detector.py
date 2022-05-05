@@ -65,6 +65,7 @@ class RainDet(object):
         while True:
             self.query_data()
             self.warn_judge()
+            self.change_led()
             if self.warn:
                 self.send_warn()
             if touch.is_touch(GPIO.input(36)):
