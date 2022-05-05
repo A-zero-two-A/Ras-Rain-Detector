@@ -28,8 +28,7 @@ def U_photo_detect(arg):
 # 循环函数
 def loop():
 	while True:
-		U_photo_detect()
-		time.sleep(1)
+		pass
 
 def destroy():
 	GPIO.cleanup()
