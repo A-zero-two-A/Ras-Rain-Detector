@@ -12,7 +12,7 @@ USTB Raspberry Development homework
 
 ### 实时气温检测
 
-启动程序后会在控制台持续显示`当前气温` `降水情况` `关窗情况`等, 待机指示灯绿色常量
+启动程序后会在控制台显示`当前气温` `降水情况` `关窗情况`等, 待机指示灯绿色常量, 当用户触摸按钮查询时会更新控制台数据
 
 ````
 Ras-Rain-Detector
@@ -67,7 +67,7 @@ makerobo_TouchPin = 16 (36)
 U_photo_PIPin  = 40
 ```
 
-## 设计
+## API
 
 ### 触摸开关模块
 
@@ -90,13 +90,13 @@ U_photo_PIPin  = 40
 
 `thermistor.py`
 
-函数`thm_loop`连续读取当前温度
+函数`get_thm`, 调用时获取当前温度
 
 ### 雨滴传感模块
 
 `rain.py`
 
-函数`rain_mainloop`持续读取当前是否下雨
+函数`get_rain_info`, 调用时返回当前是否下雨
 
 ### 光电门传感模块
 
@@ -106,5 +106,4 @@ U_photo_PIPin  = 40
 
 函数`loop`在输入变化时显示当前状态
 
-----
 

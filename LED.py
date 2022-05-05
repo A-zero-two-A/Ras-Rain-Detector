@@ -6,6 +6,7 @@ Gpin = 12
 
 gh = GPIO.HIGH
 gl = GPIO.LOW
+
 GPIO.setmode (GPIO.BOARD) #采用实际的物理管脚给GPIO口
 GPIO.setwarnings(False) #去除GPIO口警告
 GPIO.setup(11,GPIO.OUT)
