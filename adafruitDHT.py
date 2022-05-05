@@ -7,9 +7,9 @@ import PCF8591 as ADC
 import adafruit_dht
 
 sensor_arg = '11'
-dhtDevice = adafruit_dht.DHT22(board.D18)
+dhtDevice = adafruit_dht.DHT11(board.D18)
 
-def DHT_mainloop(GPIO_pin):
+def DHT_mainloop():
     while True:
         try:
             temperature_c = dhtDevice.temperature
