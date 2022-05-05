@@ -64,8 +64,9 @@ class RainDet(object):
             self.warn_judge()
             if self.warn:
                 self.send_warn()
-            if touch.is_touch(GPIO.input(36)):
-                self.show()
+            # if touch.is_touch(GPIO.input(36)):
+            #     self.show()
+            self.debug()
             time.sleep(1)
 
     def show(self):
@@ -74,6 +75,19 @@ class RainDet(object):
         print('Temp: '+str(self.tmp)+'C')
         print('Raining: '+str(self.is_rain))
         print('Window: ', end='')
+        if self.win_closed:
+            print('Closed')
+        else:
+            print('Opened')
+            
+    def debug(self):
+        os.system('clear')
+        print('Ras-Rain-Detector')
+        print('Temp: '+str(self.tmp)+'C')
+        print('Raining: '+str(self.is_rain))
+        print('Window: ', end='')
+        print(self.cur_led_color)
+        print(self.warn)
         if self.win_closed:
             print('Closed')
         else:
