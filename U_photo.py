@@ -1,12 +1,11 @@
 import time
 import RPi.GPIO as GPIO
 
-U_photo_PIPin  = 21  # U型光电传感器管脚定义
+U_photo_PIPin  = 40  # U型光电传感器管脚定义
 
 def init():
 	GPIO.setmode(GPIO.BOARD)
 	GPIO.setwarnings(False) 
-
 	GPIO.setup(U_photo_PIPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 	GPIO.add_event_detect(U_photo_PIPin, GPIO.BOTH, callback=U_photo_detect, bouncetime=200)
 
@@ -21,7 +20,7 @@ def U_photo_Print(pin_in):
 			
 
 # 中断函数，检测到有物体挡住时，响应中断函数					
-def U_photo_detect():
+def U_photo_detect(arg):
 	U_photo_Print(GPIO.input(U_photo_PIPin))   # 打印出检测到有物体挡住！
  
 
