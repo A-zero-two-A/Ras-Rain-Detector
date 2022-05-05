@@ -69,7 +69,6 @@ class RainDet(object):
                 self.send_warn()
             if touch.is_touch(GPIO.input(36)):
                 self.show()
-            self.debug()
             time.sleep(1)
 
     def show(self):
