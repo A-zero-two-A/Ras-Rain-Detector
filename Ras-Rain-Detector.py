@@ -24,7 +24,7 @@ class RainDet(object):
         self.tmp = 0.0
         self.win_closed = False
         self.warn = False
-        self.cur_led_color = 1
+        self.cur_led_color = 0
         self.touch_num = 0
         up.init(self.up_callback)
         
@@ -57,6 +57,8 @@ class RainDet(object):
         self.tmp = thermistor.get_thm(ADC_addr['thm'])
     
     def send_warn(self):
+        self.change_led(self.cur_led_color)
+        self.show()
         print('!!!Close the window!!!')
        
     def mainloop(self):
