@@ -1,4 +1,4 @@
-import Adafruit_DHT.common as ada
+import Adafruit_DHT as ada
 
 sensor = ada.DHT11
 
