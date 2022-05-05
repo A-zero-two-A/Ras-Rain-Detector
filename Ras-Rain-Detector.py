@@ -57,7 +57,7 @@ class RainDet(object):
         self.tmp = thermistor.get_thm(ADC_addr['thm'])
     
     def send_warn(self):
-        self.change_led(self.cur_led_color)
+        self.change_led()
         self.show()
         print('!!!Close the window!!!')
        
@@ -113,5 +113,3 @@ if __name__ == '__main__':
             rd.mainloop()
     except KeyboardInterrupt:
         rd.release()
-    except Exception:
-        pass
