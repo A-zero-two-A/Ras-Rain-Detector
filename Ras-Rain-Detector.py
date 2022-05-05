@@ -56,8 +56,7 @@ class RainDet(object):
         self.tmp = thermistor.get_thm(ADC_addr['thm'])
     
     def send_warn(self):
-        # todo
-        pass
+        print('!!!Close the window!!!')
        
     def mainloop(self):
         while True:
@@ -70,9 +69,15 @@ class RainDet(object):
             time.sleep(1)
 
     def show(self):
-        # todo
         os.system('clear')
-        pass
+        print('Ras-Rain-Detector')
+        print('Temp: '+str(self.tmp)+'C')
+        print('Raining: '+str(self.is_rain))
+        print('Window: ', end='')
+        if self.win_closed:
+            print('Closed')
+        else:
+            print('Opened')
     
     def release(self):
         GPIO.cleanup()
