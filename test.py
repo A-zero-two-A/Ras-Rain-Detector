@@ -1,13 +1,12 @@
 import rain
 import thermistor
-import adafruitDHT as aDHT
-import ada_old as ada
 import PCF8591 as ADC
+import U_photo as up
 import RPi.GPIO as GPIO
 
 ADC_addr = {
     'rain': 0,
-    'aDHT': 1
+    'thm': 1
 }
 
 PCF_addr = 0x48
@@ -20,4 +19,5 @@ if __name__ == '__main__':
     # rain.rain_mainloop(ADC_addr['rain'])
     # thermistor.thm_loop(ADC_addr['thm'])
     # aDHT.DHT_mainloop()
-    ada.dht_mainloop()
+    # ada.dht_mainloop()
+    up.loop()
