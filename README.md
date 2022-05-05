@@ -26,9 +26,9 @@ makerobo_B = 13 (27)
 
 makerobo_TouchPin = 16 (36)
 
-#### ADHT
+#### U型光电
 
-GPIO23(B16)
+U_photo_PIPin  = 40
 
 ## 设计
 
@@ -48,13 +48,6 @@ GPIO23(B16)
 
 封装函数`clear_LED`, 被调用时关闭LED灯并释放`GPIO`接口
 
-### 温湿度传感模块
-
-`adafruitDHT.py`
-
-封装函数`start_read`连续读取当前温湿度并返回
-
-> 代码参考 https://github.com/adafruit/Adafruit_Python_DHT/blob/master/examples/AdafruitDHT.py
 
 ### 模拟温度传感模块
 
