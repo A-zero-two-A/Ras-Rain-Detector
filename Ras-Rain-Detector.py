@@ -18,6 +18,7 @@ PCF_addr = 0x48
 ADC.setup(PCF_addr)
 touch.init()
 
+
 class RainDet(object):
     def __init__(self):
         self.is_rain = False
@@ -27,40 +28,40 @@ class RainDet(object):
         self.cur_led_color = 0
         self.touch_num = 0
         up.init(self.up_callback)
-        
+
     def init(self):
         self.query_data()
         self.change_led()
         self.show()
-        
+
     def change_led(self):
         LED.change_LED(self.cur_led_color)
         if self.cur_led_color == 0 and self.warn:
             self.cur_led_color = 1
         elif self.cur_led_color == 1 and not self.warn:
             self.cur_led_color = 0
-    
+
     def warn_judge(self):
         if self.is_rain and self.win_closed != True:
             self.warn = True
         else:
             self.warn = False
-    
+
     def up_callback(self, arg):
-        if(GPIO.input(up.U_photo_PIPin)):
+        if (GPIO.input(up.U_photo_PIPin)):
             self.win_closed = True
         else:
             self.win_closed = False
-    
+
     def query_data(self):
         self.is_rain = rain.get_rain_info(ADC_addr['rain'])
         self.tmp = thermistor.get_thm(ADC_addr['thm'])
-    
+
     def send_warn(self):
         self.change_led()
         self.show()
         print('!!!Close the window!!!')
-       
+
     def mainloop(self):
         while True:
             self.query_data()
@@ -75,19 +76,19 @@ class RainDet(object):
     def show(self):
         os.system('clear')
         print('Ras-Rain-Detector')
-        print('Temp: '+str(self.tmp)+'C')
-        print('Raining: '+str(self.is_rain))
+        print('Temp: ' + str(self.tmp) + 'C')
+        print('Raining: ' + str(self.is_rain))
         print('Window: ', end='')
         if self.win_closed:
             print('Closed')
         else:
             print('Opened')
-            
+
     def debug(self):
         os.system('clear')
         print('Ras-Rain-Detector')
-        print('Temp: '+str(self.tmp)+'C')
-        print('Raining: '+str(self.is_rain))
+        print('Temp: ' + str(self.tmp) + 'C')
+        print('Raining: ' + str(self.is_rain))
         print('Window: ', end='')
         if self.win_closed:
             print('Closed')
@@ -100,11 +101,11 @@ class RainDet(object):
         if touch.is_touch(GPIO.input(36)):
             self.touch_num += 1
         print("touch", end=str(self.touch_num))
-        
-    
+
+
     def release(self):
         GPIO.cleanup()
-    
+
 if __name__ == '__main__':
     rd = RainDet()
     rd.init()
