@@ -11,14 +11,14 @@ POST_REPLY = '/sys/h5fz0rTp7Xx/raspberry-device/thing/event/property/post_reply'
 SET = '/sys/h5fz0rTp7Xx/raspberry-device/thing/service/property/set'  # 订阅云端指令
 
 
-# # 消息回调（云端下发消息的回调函数）
-# def on_message(client, userdata, msg):
-#     return
+# 消息回调（云端下发消息的回调函数）
+def on_message(client, userdata, msg):
+    pass
 
 
-# # 连接回调（与阿里云建立链接后的回调函数）
-# def on_connect(client, userdata, flags, rc):
-#     pass
+# 连接回调（与阿里云建立链接后的回调函数）
+def on_connect(client, userdata, flags, rc):
+    pass
 
 # 链接信息
 Server, ClientId, userNmae, Password = aliLink.linkiot(DeviceName, ProductKey, DeviceSecret)

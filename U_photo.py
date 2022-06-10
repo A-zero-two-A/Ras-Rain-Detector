@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 U_photo_PIPin  = 21  # U型光电传感器管脚定义
 
 def init(callback_func):
-	GPIO.setmode(GPIO.BOARD)
+	GPIO.setmode(GPIO.BCM)
 	GPIO.setwarnings(False) 
 	GPIO.setup(U_photo_PIPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 	GPIO.add_event_detect(U_photo_PIPin, GPIO.BOTH, callback=callback_func, bouncetime=200)
