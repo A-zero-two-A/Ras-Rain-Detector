@@ -1,16 +1,16 @@
 import RPi.GPIO as GPIO
 import time
 
-Rpin = 11
-Gpin = 12
+Rpin = 17
+Gpin = 18
 
 gh = GPIO.HIGH
 gl = GPIO.LOW
 
-GPIO.setmode (GPIO.BOARD) #采用实际的物理管脚给GPIO口
+# GPIO.setmode(GPIO.BOARD) #采用实际的物理管脚给GPIO口
 GPIO.setwarnings(False) #去除GPIO口警告
-GPIO.setup(11,GPIO.OUT)
-GPIO.setup(12,GPIO.OUT)
+GPIO.setup(17, GPIO.OUT)
+GPIO.setup(18, GPIO.OUT)
 
 #循环函数
 def change_LED(cur_color):

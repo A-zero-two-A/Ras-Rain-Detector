@@ -19,7 +19,7 @@ ADC_addr = {
 }
 
 
-ada_pin = GPIO.input(27)
+ada_pin = GPIO.input(16)
 
 # 初始化PCM8591 AD模块
 PCF_addr = 0x48

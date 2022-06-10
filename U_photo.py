@@ -1,7 +1,7 @@
 import time
 import RPi.GPIO as GPIO
 
-U_photo_PIPin  = 40  # U型光电传感器管脚定义
+U_photo_PIPin  = 21  # U型光电传感器管脚定义
 
 def init(callback_func):
 	GPIO.setmode(GPIO.BOARD)
