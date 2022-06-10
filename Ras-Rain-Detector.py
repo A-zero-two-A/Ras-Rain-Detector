@@ -119,11 +119,19 @@ class RainDet(object):
         """
         参数上云
         """
+        if self.win_closed:
+            win = 1
+        else:
+            win = 0
+        if self.is_rain:
+            is_rain = 1
+        else:
+            is_rain = 0
         msg_dict = {
             'tem': (self.d_tmp + self.tmp) / 2,
             'hum': self.hum,
-            'win': self.win_closed,
-            'is_rain': self.is_rain
+            'win': win,
+            'is_rain': is_rain
         }
         sender.send(msg_dict)
 
