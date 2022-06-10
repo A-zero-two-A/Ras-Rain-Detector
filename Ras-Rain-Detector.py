@@ -67,7 +67,7 @@ class RainDet(object):
         else:
             self.warn = False
 
-    def up_callback(self):
+    def up_callback(self, args=None):
         """
         判断窗户是否打开
         :return: 设置成员win_closed的值
