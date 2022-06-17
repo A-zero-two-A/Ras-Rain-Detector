@@ -27,7 +27,7 @@ ADC.setup(PCF_addr)
 # touch.init()
 
 
-class RainDet(object):
+class RainDet():
     """
     Ras-Rain-Detector类
     """
@@ -110,14 +110,15 @@ class RainDet(object):
             self.change_led()
             if self.warn:
                 self.send_warn()
-            # if touch.is_touch(GPIO.input(36)):
             self.show()
             self.send()
             time.sleep(1)
 
     def send(self):
         """
-        参数上云
+        参数上云, 有个坑是这样的:
+            阿里云的bool型似乎是str, 不支持true/false, 只能读取0和1....
+            于是需要翻译一遍bool型, 不知道有没有更好的解法
         """
         if self.win_closed:
             win = 1
@@ -133,7 +134,7 @@ class RainDet(object):
             'win': win,
             'is_rain': is_rain
         }
-        sender.send(msg_dict)
+        sender.send(msg_dict)   # 向sender发送数据
 
 
     def show(self):
